@@ -1,2 +1,2 @@
 # Nargothrond
-Config files for my web server
+Config files for my Nginx web server
