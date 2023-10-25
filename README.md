@@ -1,6 +1,6 @@
 # nargothrond
-i<p align="center">
-  <img src="img/bad-end.jpeg" width="350" alt="Bilbo at his Bag End study">
+<p align="center">
+  <img src="img/bag-end.jpeg" width="350" alt="Bilbo at his Bag End study">
 </p>
 
 Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and LaTeX templates.
