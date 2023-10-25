@@ -1,6 +1,5 @@
 # nargothrond
-Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and LaTeX templates.
-[Instructions](https://nargothrond.xyz/notes-web-server.html) for setting up your own bastion on the web.
+Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and LaTeX templates + [instructions](https://nargothrond.xyz/notes-web-server.html) for setting up your own bastion on the web.
 
 <p align="center">
   <img src="img/bag-end.jpeg" width="400" alt="Bilbo at his Bag End study">
