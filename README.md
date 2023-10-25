@@ -1,5 +1,5 @@
 # nargothrond
-Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and LaTeX templates.
+Repo for my web(server/tools) [nargothrond.xyz](https://nargothrond.xyz/) & LaTeX templates.
 <p align="center">
   <img src="img/bag-end.jpeg" width="400" alt="Bilbo at his Bag End study">
 </p>
