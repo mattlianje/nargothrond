@@ -1,6 +1,6 @@
 # nargothrond
 <p align="center">
-  <img src="img/bag-end.jpeg" width="300" alt="Bilbo at his Bag End study">
+  <img src="img/bag-end.jpeg" width="350" alt="Bilbo at his Bag End study">
 </p>
 
 Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and LaTeX templates.
@@ -9,8 +9,8 @@ Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and
 > ― J.R.R. Tolkien, Quenta Silmarillion
 
 #### LaTex
-[résumé](img/resume.png)
+- [résumé](latex/resume.tex)
 ![résumé](img/resume.png)
 
-[letter](img/letter.png)
+- [letter](latex/letter.tex)
 ![letter](img/letter.png)
