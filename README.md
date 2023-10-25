@@ -9,8 +9,8 @@ Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and
 > ― J.R.R. Tolkien, Quenta Silmarillion
 
 #### LaTex
-[résumé](latex/resume.tex)
+- [résumé](latex/resume.tex)
 ![résumé](img/resume.png)
 
-[letter](latex/letter.tex)
+- [letter](latex/letter.tex)
 ![letter](img/letter.png)
