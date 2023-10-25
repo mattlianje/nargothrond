@@ -2,7 +2,7 @@
 Repo for my webserver [nargothrond.xyz](https://nargothrond.xyz/), web-tools and LaTeX templates.
 
 <p align="center">
-  <img src="img/bag-end.jpeg" width="350" alt="Bilbo at his Bag End study">
+  <img src="img/bag-end.jpeg" width="400" alt="Bilbo at his Bag End study">
 </p>
 
 > "Thus Finrod came to the Caverns of Narog, and began to establish there deep halls and armouries after the fashion of the mansions of Menegroth; and that stronghold was called Nargothrond."
