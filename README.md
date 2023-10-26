@@ -5,6 +5,7 @@ My web(server/tools) [nargothrond.xyz](https://nargothrond.xyz/) & LaTeX templat
 </p>
 
 > "Thus Finrod came to the Caverns of Narog, and began to establish there deep halls and armouries after the fashion of the mansions of Menegroth; and that stronghold was called Nargothrond."
+>
 > ― J.R.R. Tolkien, Quenta Silmarillion
 
 #### LaTex
