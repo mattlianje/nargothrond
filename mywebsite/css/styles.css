@@ -85,3 +85,45 @@ input:checked + .slider:before {
 .post-date span {
   font-weight: bold;
 }
+
+ul.sub-menu {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    position: absolute;
+    z-index: 1000;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+ul.sub-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+ul.sub-menu li a {
+    display: block;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+ul.sub-menu li a:hover {
+    background-color: #f1f1f1;
+}
+
+.cv-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;  
+    text-decoration: underline; 
+}
+
+.cv-dropdown:hover > ul.sub-menu {
+    display: block;
+    left: 0;
+    top: 100%;
+}
