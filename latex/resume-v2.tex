@@ -1,0 +1,136 @@
+\documentclass[a4paper, 10pt]{article}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[top=0.5in, bottom=0.5in, left=0.8in, right=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{enumitem,ragged2e}
+
+\newcommand{\header}[1]{
+    \begin{center}
+        {\Large \textbf{#1}}
+    \end{center}
+}
+
+\newcommand{\sectiontitle}[1]{
+    \vspace{8pt}
+    \footnotesize
+    \noindent{\large \textbf{#1}}
+    \vspace{3pt}
+    \hrule
+    \vspace{6pt}
+}
+
+\newcommand{\entry}[4]{
+    \vspace{6pt}
+    \footnotesize
+    \noindent
+    \begin{tabular}{@{} p{0.2\linewidth} p{0.5\linewidth} p{0.25\linewidth} @{}}
+        {#4} & \textbf{#1} -- \textbf{#2} & \hfill{#3} \\
+    \end{tabular}
+    \vspace{4pt}
+}
+\begin{document}
+
+\header{Finrod Felagund}
+
+\noindent
+\vspace{-22pt} % Adjust the value to control the spacing between the name and contact information
+\small
+\begin{center}
+Nargothrond, Beleriand, Middle Earth, felagund@nargothrond.xyz
+\end{center}
+
+\sectiontitle{Links}
+\begin{itemize}[left=0.25\linewidth, noitemsep]
+    \footnotesize
+    \item \underline{\href{https://github.com/mattlianje}{nargothrond.xyz/workshop}},
+    \underline{\href{https://nargothrond.xyz}{nargothrond.xyz/}}
+\end{itemize}
+
+\sectiontitle{Profile}
+\begin{itemize}[left=0.25\linewidth, noitemsep]
+    \footnotesize
+    \item \textbf{Leadership:} Proven ability in establishing and ruling realms, leading forces in battle.
+    \item \textbf{Diplomacy:} Exceptional skills in fostering relations with different races, particularly Men.
+    \item \textbf{Loyalty:} Demonstrated courage and self-sacrifice in fulfilling oaths and protecting allies.
+    \item \textbf{Architecture and Engineering:} Designing and building large-scale underground fortresses.
+    \item \textbf{Combat:} Proficient in the use of Elven weapons, including longbows, and Elven blades.
+\end{itemize}
+
+\sectiontitle{Experience}
+
+\entry{Born in Valinor, Journey to Middle-earth}{N/A}{Valinor, Aman}{Y.T. 1050 - Y.T. 1495}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Eldest son of Finarfin and Eärwen.
+    \item Departed for Middle-earth with my father and brothers after the theft of the Silmarils, gems created by my uncle Fëanor.
+\end{itemize}
+
+
+\entry{Captain, Soldier}{Battles of the Jewels}{Beleriand}{Y.T. 1495 - F.A. 60}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+\footnotesize
+    \footnotesize
+    \item Participated in the early battles of Beleriand, demonstrating strategic acumen, and effective command of Elven forces. These battles include:
+    \item \textbf{Dagor-nuin-Giliath (Battle-under-Stars)}: Engaged in high-intensity shock combat, and rapid manoeuvre warfare against Morgoth's diverse forces: Orcs, Trolls, and Balrogs.
+    \item \textbf{The Dagor Aglareb (Glorious Battle)}: Faced Morgoth's renewed forces, demonstrated superior use of defense-in-depth, leading to a successful containment of the enemy advance. Employed a mix of rapid frontal assaults and defensive stands to establish the siege of Angband.
+\end{itemize}
+
+\entry{Founder}{Minas Tirith}{Tol Sirion, Beleriand}{F.A. 1 - F.A. 455}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Established the fortress of Minas Tirith upon Tol Sirion.
+    \item Demonstrated effective strategic planning and defensive capabilities.
+\end{itemize}
+
+
+\entry{Founder and Leader}{Nargothrond}{Nargothrond, Beleriand}{F.A. 52 - F.A. 465}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Established and defended the underground fortress of Nargothrond.
+    \item Skilled in underground engineering and architecture, earning the nickname "Felagund" (Hewer of Caves) from the Dwarves.
+    \item Demonstrated strong leadership and strategic skills in guarding against the forces of Morgoth.
+\end{itemize}
+
+\entry{Ambassador to Men}{House of Bëor}{Estolad, Beleriand}{F.A. 116}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Fostered strong relations with the newly arrived Men.
+    \item Demonstrated exceptional skills in diplomacy and communication.
+\end{itemize}
+
+\entry{General, Soldier}{Dagor Bragollach}{Northern Beleriand}{F.A. 455}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Led fierce but unsuccessful counter-offensives when the siege of Angband was first broken, and a disciplined fighting retreat against Morgoth's forces during the Battle of Sudden Flame.
+    \item Strategically isolated during the battle, I was rescued from certain death by Barahir and his men, marking the beginning of a strong alliance with Men.
+\end{itemize}
+
+\entry{Expedition Lead}{Quest for the Silmaril}{Angband}{F.A. 465}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Assisted Beren in his quest to recover a Silmaril from Morgoth's crown.
+    \item Engaged Sauron in a battle of songs of power, demonstrating unyielding determination.
+    \item When captured and imprisoned, I fought a werewolf in single combat using my bare hands and teeth. I succumbed to my injuries, but ensured Beren's survival.
+\end{itemize}
+
+
+\sectiontitle{Education}
+
+\entry{Adept of Warfare}{Military Council of Maedhros}{Himring, Beleriand}{F.A. 10 - F.A. 50}
+\begin{itemize}[left=0.25\linewidth, noitemsep, before=\small]
+    \footnotesize
+    \item Underwent intensive training in war strategy, tactics, and leadership under Maedhros, one of the foremost military minds of the Noldor.
+\end{itemize}
+
+% Skills
+\sectiontitle{Interests}
+\begin{itemize}[left=0.25\linewidth, noitemsep]
+    \footnotesize
+    \item Quenya, Sindarin, Khuzdul, Common Speech (Westron), Black Speech, Valarin.
+    \item Adept at music (vocals and harp), communication, and enchantment.
+\end{itemize}
+
+\end{document}

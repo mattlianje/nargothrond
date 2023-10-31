@@ -1,92 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Setting up Calibre Server</title>
-    <link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body class="light-theme">
-    <h1>Calibre Server Setup</h1>
-    <p>Setting up a Calibre book server with a URL prefix.</p>
-
-    <h3>Step 1: Install Calibre</h3>
-    <p>First, we need to install Calibre on the server:</p>
-    <pre><code>
-    apt install -y calibre 
-    mkdir /opt/calibre
+   <head>
+      <meta charset="UTF-8">
+      <title>Setting up Calibre Server</title>
+      <link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
+      <link rel="stylesheet" href="css/styles.css" />
+   </head>
+   <body class="light-theme">
+      <h1>Calibre Server Setup</h1>
+      <p>Setting up a Calibre book server with a URL prefix.</p>
+      <h3>Step 1: Install Calibre</h3>
+      <p>First, we need to install Calibre on the server:</p>
+      <pre><code>
+$ apt install -y calibre
+$ mkdir /opt/calibre
     </code></pre>
-
-    <h3>Step 2: Create the Calibre library</h3>
-    <p>Next, we create the Calibre library where our books will be stored:</p>
-    <pre><code>
-    rsync -avuP your-library-dir root@nargothrond.xyz:/opt/calibre/
-    calibredb add /opt/calibre/your-local-dir/*.epub --with-library nargothrond-library 
+      <h3>Step 2: Create the Calibre library</h3>
+      <p>Next, we create the Calibre library where our books will be stored:</p>
+      <pre><code>
+$ rsync -avuP your-library-dir root@nargothrond.xyz:/opt/calibre/
+$ calibredb add /opt/calibre/your-local-dir/*.epub \
+    --with-library nargothrond-library
     </code></pre>
-   
-    Add a user to protect your books like this:
-    <pre><code>
-    calibre-server --manage-users
+      Add a user to protect your books like this:
+      <pre><code>
+$ calibre-server --manage-users
+      </pre></code>
+      <h3>Step 3: Create a Systemd Service</h3>
+      <p>So the Calibre server starts automatically on boot, we create a systemd service (the option "--url-prefix /calibre" is imperative if you want to use a url prefix ... Calibre doc <a href = "https://manual.calibre-ebook.com/server.html">here</a>:</p>
+      <pre><code>
+$ vim /etc/systemd/system/calibre-server.service
+
+[Unit]
+Description=Calibre library server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/calibre-server \
+--enable-auth --enable-local-write /opt/calibre/nargothrond-library \
+--listen-on 127.0.0.1 --url-prefix /calibre --port 8080
+
+[Install]
+WantedBy=multi-user.target
+    </code></pre>
+      <p>Now you can start and start your Calibre server as below shown:</p>
+      <pre><code>
+$ systemctl daemon-reload
+$ systemctl enable calibre-server
+$ systemctl start calibre-server
     </pre></code>
-
-
-    <h3>Step 3: Create a Systemd Service</h3>
-    <p>So the Calibre server starts automatically on boot, we create a systemd service (the option "--url-prefix /calibre" is imperative if you want to use a url prefix ... Calibre doc <a href = "https://manual.calibre-ebook.com/server.html">here</a>:</p>
-    <pre><code>
-    vim /etc/systemd/system/calibre-server.service
+      <p>Or to start debugging your Calibre server:</p>
+      <pre><code>
+$ systemctl status calibre-server
+$ systemctl restart calibre-server
     </code></pre>
-    
-    <pre><code>
-    [Unit]
-    Description=Calibre library server
-    After=network.target
-    
-    [Service]
-    Type=simple
-    User=root
-    Group=root
-    ExecStart=/usr/bin/calibre-server --enable-auth --enable-local-write /opt/calibre/nargothrond-library --listen-on 127.0.0.1 --url-prefix /calibre --port 8080
-    
-    [Install]
-    WantedBy=multi-user.target
+      <h3>Step 4: Configure Nginx</h3>
+      <p>Add a Calibre block to your existing URL prefix Nginx server config:</p>
+      <pre><code>
+$ vim /etc/nginx/sites-available/mywebsite
+
+proxy_set_header X-Forwarded-For $remote_addr;
+location /calibre/ {
+    proxy_buffering off;
+    proxy_pass http://127.0.0.1:8080$request_uri;
+ }
+location /calibre {
+    # we need a trailing slash for the Application Cache to work
+    rewrite /calibre /calibre/ permanent;
+ }
     </code></pre>
-
-    <p>Now you can start and start your Calibre server as below shown:</p>
-    <pre><code>
-    systemctl daemon-reload
-    systemctl enable calibre-server
-    systemctl start calibre-server
-    </pre></code>
-
-    <p>Or to start debugging your Calibre server:</p>
-    <pre><code>
-    systemctl status calibre-server
-    systemctl restart calibre-server
-    </code></pre>
-
-    <h3>Step 4: Configure Nginx</h3>
-    <p>Add a Calibre block to your existing URL prefix Nginx server config:</p>
-    <pre><code>
-    vim /etc/nginx/sites-available/mywebsite
-    </code></pre>
-
-    <pre><code>
-    proxy_set_header X-Forwarded-For $remote_addr;
-    location /calibre/ {
-        proxy_buffering off;
-        proxy_pass http://127.0.0.1:8080$request_uri;
-     }
-    location /calibre {
-        # we need a trailing slash for the Application Cache to work
-        rewrite /calibre /calibre/ permanent;
-     }
-    </code></pre>
-
-    <a href="index.html">Back to Home</a>
-    <label class="switch">
+      <a href="index.html">Back to Home</a>
+      <label class="switch">
       <input type="checkbox" id="theme-toggle">
       <span class="slider round"></span>
-    </label>
-    <script src="js/script.js"></script>
-</body>
+      </label>
+      <script src="js/script.js"></script>
+   </body>
 </html>
+

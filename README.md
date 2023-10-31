@@ -9,8 +9,9 @@ My web(server/tools) [nargothrond.xyz](https://nargothrond.xyz/) & LaTeX templat
 > ― J.R.R. Tolkien, Quenta Silmarillion
 
 #### LaTex
-- [résumé](latex/resume.tex)
-![résumé](img/resume.png)
+- [résumés](latex/resume-v2.tex)
+![résumé-v2](img/resume-v2.png)
+![résumé-v1](img/resume-v1.png)
 
 - [letter](latex/letter.tex)
 ![letter](img/letter.png)

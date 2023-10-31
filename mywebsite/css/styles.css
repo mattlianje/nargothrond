@@ -22,7 +22,6 @@ body {
   height: 34px;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -53,7 +52,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -62,20 +60,51 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Define code block styling for light theme */
 .light-theme pre {
-  background-color: #f0f0f0; /* light grey */
+  background-color: #f0f0f0; 
   color: black;
   padding: 10px;
   border-radius: 4px;
 }
 
-/* Define code block styling for dark theme */
+.dark-theme {
+  --body-color: hsl(0, 0%, 86%);
+  --body-bg-color: hsl(0, 0%, 16%);
+  --link-color: hsl(196, 80%, 77%);
+  --link-visited: hsl(196, 80%, 77%);
+  --link-focus-outline: hsl(215, 63%, 73%);
+  --pre-bg-color: hsl(0, 1%, 25%);
+  --kbd-bg-color: hsl(0, 0%, 16%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: hsl(0, 0%, 59%); 
+  --sidenote-target-border-color: hsl(0, 0%, 59%);
+  --footnotes-border-color: hsl(0, 0%, 59%);
+  --proof-symbol-filter: invert(80%);
+
+  background-color: var(--body-bg-color);
+  color: var(--body-color);
+}
+
+.dark-theme a {
+  color: var(--link-color);
+}
+
+.dark-theme a:visited {
+  color: var(--link-visited);
+}
+
+.dark-theme a:focus {
+  outline-color: var(--link-focus-outline);
+}
+
 .dark-theme pre {
-  background-color: #2f2f2f; /* dark grey */
-  color: white;
-  padding: 10px;
-  border-radius: 4px;
+  background-color: var(--pre-bg-color);
+  color: var(--body-color); 
+}
+
+.dark-theme kbd {
+  background-color: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-border-color);
 }
 
 .post-date {
@@ -85,3 +114,57 @@ input:checked + .slider:before {
 .post-date span {
   font-weight: bold;
 }
+
+ul.sub-menu {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    position: absolute;
+    z-index: 1000;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+ul.sub-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+ul.sub-menu li a {
+    display: block;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: black;
+}
+
+ul.sub-menu li a:hover {
+    background-color: #f1f1f1;
+}
+
+.cv-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;  
+    text-decoration: underline; 
+}
+
+.cv-dropdown:hover > ul.sub-menu {
+    display: block;
+    left: 0;
+    top: 100%;
+}
+
+/* Formatting the code blocks for explainations */
+pre, code {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.5em;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  font-family: 'Your font here', monospace;
+}
+
