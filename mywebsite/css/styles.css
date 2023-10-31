@@ -63,9 +63,10 @@ input:checked + .slider:before {
 .light-theme pre {
   background-color: #f0f0f0; 
   color: black;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 0px 0px 0px 20px;
+  border-radius: 5px;
 }
+
 
 .dark-theme {
   --body-color: hsl(0, 0%, 86%);
@@ -102,9 +103,11 @@ input:checked + .slider:before {
   color: var(--body-color); 
 }
 
-.dark-theme kbd {
-  background-color: var(--kbd-bg-color);
-  border: 1px solid var(--kbd-border-color);
+.dark-theme pre {
+  background-color: var(--pre-bg-color);
+  color: var(--body-color);
+  padding: 0px 0px 0px 20px; /* Explicitly set the same padding as in light-theme */
+  border-radius: 5px;
 }
 
 .post-date {
@@ -155,16 +158,5 @@ ul.sub-menu li a:hover {
     display: block;
     left: 0;
     top: 100%;
-}
-
-/* Formatting the code blocks for explainations */
-pre, code {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0.5em;
-  margin: 0;
-  white-space: pre;
-  overflow-x: auto;
-  font-family: 'Your font here', monospace;
 }
 
