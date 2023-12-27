@@ -8,30 +8,48 @@
    </head>
    <body class="light-theme">
       <h1>Server and Domain Setup</h1>
-      <p>Notes for setting up a webserver away from prying eyes. We will be using nginx as our web server and also setting up an SSL certificate with Let's Encrypt for secure connections.</p>
+      <p>Notes for setting up a webserver away from prying eyes. We will be
+      using nginx as our web server and also setting up an SSL certificate with
+      Let's Encrypt for secure connections.
+      </p>
       <h3>Step 1: Setting up DNS records</h3>
-      <p>First, we need to point our domain name to the IP address of our server. This is done by adding A and AAAA records with our DNS provider. Replace the 'ipv4' and 'ipv6' placeholders with your server's actual IP addresses:</p>
+      <p>First, we need to point our domain name to the IP address of our
+      server. This is done by adding A and AAAA records with our DNS provider.
+      Replace the 'ipv4' and 'ipv6' placeholders with your server's actual IP
+      addresses:
+      </p>
+
       <pre><code>
 A record: nargothrond.xyz -> ipv4
 AAAA record: nargothrond.xyz -> ipv6
-    </code></pre>
+      </code></pre>
+
       <h3>Step 2: SSH into your server</h3>
       <p>Connect to your server via SSH. Here, we are using the domain name 'nargothrond.xyz'.</p>
+
       <pre><code>
 $ ssh root@nargothrond.xyz
-    </code></pre>
+      </code></pre>
+
       <h3>Step 3: Install Nginx</h3>
       <p>Update your server's package list and install Nginx:</p>
+
       <pre><code>
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install nginx
-    </code></pre>
+      </code></pre>
+
       <h3>Step 4: Configure Nginx</h3>
-      <p>Create a new Nginx configuration file using vim and set up your server block. Replace 'nargothrond.xyz' with your actual domain name and '/var/www/mysite' with the path to your website's files:</p>
+      <p>Create a new Nginx configuration file using vim and set up your server
+      block. Replace 'nargothrond.xyz' with your actual domain name and
+      '/var/www/mysite' with the path to your website's files:
+      </p>
+
       <pre><code>
 $ sudo vim /etc/nginx/sites-available/mywebsite
-    </code></pre>
+      </code></pre>
+
       <pre><code>
 server {
     listen 80;
@@ -45,28 +63,36 @@ server {
         try_files $uri $uri/ =404;
     }
 }
-    </code></pre>
+      </code></pre>
+
       <h3>Step 5: Enable your Nginx configuration</h3>
       <p>Create a symbolic link from your new configuration file to the sites-enabled directory:</p>
+
       <pre><code>
 $ sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled
     </code></pre>
       <h3>Step 6: Install Certbot</h3>
       <p>Install Certbot and the Nginx plugin:</p>
+
       <pre><code>
 $ sudo apt install python3-certbot-nginx
-    </code></pre>
+      </code></pre>
+
       <h3>Step 7: Obtain SSL certificate</h3>
       <p>Run Certbot to obtain and install your SSL certificate:</p>
+
       <pre><code>
 $ sudo certbot --nginx
-    </code></pre>
+      </code></pre>
+
       <h3>Step 8: Set up automatic certificate renewal</h3>
       <p>Edit your crontab file to add a new cron job that will run the 'certbot renew' command every month:</p>
+
       <pre><code>
 $ crontab -e
 0 0 1 * * /usr/bin/certbot renew --quiet
-    </code></pre>
+      </code></pre>
+
       <a href="index.html">Back to Home</a>
       <label class="switch">
       <input type="checkbox" id="theme-toggle">
