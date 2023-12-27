@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Jitsi Setup</title>
+      <link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
+      <link rel="stylesheet" href="css/styles.css" />
+   </head>
+
+   <body class="light-theme">
+      <h1>Jitsi setup</h1>
+      <p>Self-host Jitsi video call server.</p>
+
+      <h3>Step 1: Update DNS tables</h3>
+      <p>
+        Ensure you create A and AAAA for meet.nargothrond.xyz subdomains.
+      </p>
+      <p>
+        Note: There are port conflicts if you try to run vanilla jitsi alongside
+        an existing prosody or ejabberd XMPP server since Jitsi uses XMPP
+        for presence.
+      </p>
+      
+      <h3>Step 2: Install Jitsi</h3>
+      <p>Next, we install jitsi ... the Jitsi doc is very good for Debian servers and the 
+      <a href="https://jitsi.github.io/handbook/docs/devops-guide/devops-guide-quickstart">Jitsi
+         official self-hosting instructions</a> worked out of the box.
+      </p>
+
+      <h3>Step 3: Securing Jitsi</h3>
+      <p>Finally we following these instruction to secure our Jitsi server: 
+      <a href="https://jitsi.github.io/handbook/docs/devops-guide/secure-domain/">Jitsi
+         secure instructions</a>.      
+      </p>
+      <br>
+      <a href="index.html">Back to Home</a>
+      <label class="switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider round"></span>
+      </label>
+      <script src="js/script.js"></script>
+   </body>
+</html>
+
