@@ -3,8 +3,19 @@
    <head>
       <meta charset="UTF-8">
       <title>Setup domain, NginX webserver, certbot & HTTPS</title>
+
       <link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
+      <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
       <link rel="stylesheet" href="css/styles.css" />
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-nginx.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-yaml.min.js"></script>
+
+      <script src="js/script.js"></script>
+
    </head>
    <body class="light-theme">
       <h1>Server and Domain Setup</h1>
@@ -19,7 +30,7 @@
       addresses:
       </p>
 
-      <pre><code>
+      <pre class="language-markup"><code class="language-markup">
 A record: nargothrond.xyz -> ipv4
 AAAA record: nargothrond.xyz -> ipv6
       </code></pre>
@@ -27,14 +38,14 @@ AAAA record: nargothrond.xyz -> ipv6
       <h3>Step 2: SSH into your server</h3>
       <p>Connect to your server via SSH. Here, we are using the domain name 'nargothrond.xyz'.</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ ssh root@nargothrond.xyz
       </code></pre>
 
       <h3>Step 3: Install Nginx</h3>
       <p>Update your server's package list and install Nginx:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install nginx
@@ -46,11 +57,11 @@ $ sudo apt install nginx
       '/var/www/mysite' with the path to your website's files:
       </p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ sudo vim /etc/nginx/sites-available/mywebsite
       </code></pre>
 
-      <pre><code>
+      <pre class="language-nginx"><code class="language-nginx">
 server {
     listen 80;
     listen [::]:80;
@@ -68,36 +79,39 @@ server {
       <h3>Step 5: Enable your Nginx configuration</h3>
       <p>Create a symbolic link from your new configuration file to the sites-enabled directory:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled
     </code></pre>
       <h3>Step 6: Install Certbot</h3>
       <p>Install Certbot and the Nginx plugin:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ sudo apt install python3-certbot-nginx
       </code></pre>
 
       <h3>Step 7: Obtain SSL certificate</h3>
       <p>Run Certbot to obtain and install your SSL certificate:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ sudo certbot --nginx
       </code></pre>
 
       <h3>Step 8: Set up automatic certificate renewal</h3>
       <p>Edit your crontab file to add a new cron job that will run the 'certbot renew' command every month:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ crontab -e
 0 0 1 * * /usr/bin/certbot renew --quiet
       </code></pre>
 
       <a href="index.html">Back to Home</a>
+
       <label class="switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider round"></span>
+      <input type="checkbox" id="theme-toggle" onchange="toggleTheme(this.checked)">
+        <span class="slider round"></span>
       </label>
+
       <script src="js/script.js"></script>
+
    </body>
 </html>
