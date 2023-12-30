@@ -1,19 +1,18 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    const toggle = document.getElementById('theme-toggle');
+/* Toggles from latex-css dark to light w/ slider */
 
-    // Load the theme from local storage
+function applyTheme() {
     const theme = localStorage.getItem('theme');
-    if (theme) {
-        document.body.className = theme;
-        toggle.checked = (theme === 'dark-theme');
+    if (theme === 'latex-dark') {
+        document.body.classList.add('latex-dark');
+    } else {
+        document.body.classList.remove('latex-dark');
     }
+}
 
-    toggle.addEventListener('change', function() {
-        const theme = this.checked ? 'dark-theme' : 'light-theme';
+// Apply the theme as soon as possible
+applyTheme();
 
-        // Save the theme to local storage
-        localStorage.setItem('theme', theme);
-
-        document.body.className = theme;
-    });
-});
+function toggleTheme(isDark) {
+    localStorage.setItem('theme', isDark ? 'latex-dark' : 'light-theme');
+    applyTheme();
+}

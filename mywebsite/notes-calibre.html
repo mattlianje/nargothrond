@@ -3,16 +3,27 @@
    <head>
       <meta charset="UTF-8">
       <title>Setting up Calibre Server</title>
+
       <link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
+      <link rel="stylesheet" href="https://latex.now.sh/prism/prism.css">
       <link rel="stylesheet" href="css/styles.css" />
+
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-nginx.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+
+      <script src="js/script.js"></script>
    </head>
 
    <body class="light-theme">
+
       <h1>Calibre Server Setup</h1>
-      <p>Setting up a Calibre book server with a URL prefix.</p>
+      <p>Setting up a Calibre book server for you epubs (with a URL prefix).</p>
       <h3>Step 1: Install Calibre</h3>
       <p>First, we need to install Calibre on the server:</p>
-      <pre><code>
+
+      <pre class="language-bash"><code class="language-bash">
 $ apt install -y calibre
 $ mkdir /opt/calibre
       </code></pre>
@@ -20,7 +31,7 @@ $ mkdir /opt/calibre
       <h3>Step 2: Create the Calibre library</h3>
       <p>Next, we create the Calibre library where our books will be stored:</p>
 
-      <pre><code> 
+      <pre class="language-bash"><code class="language-bash">
 rsync -avuP your-library-dir root@nargothrond.xyz:/opt/calibre/
 calibredb add /opt/calibre/your-local-dir/*.epub \
  --with-library nargothrond-library
@@ -28,7 +39,7 @@ calibredb add /opt/calibre/your-local-dir/*.epub \
 
       Add a user to protect your books like this:
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ calibre-server --manage-users
       </pre></code>
 
@@ -37,7 +48,7 @@ $ calibre-server --manage-users
       service (the option "--url-prefix /calibre" is imperative if you want to
       use a url prefix ... Calibre doc <a href ="https://manual.calibre-ebook.com/server.html">here</a>:</p>
 
-      <pre><code> 
+      <pre class="language-bash"><code class="language-bash">
 $ vim /etc/systemd/system/calibre-server.service
 
 [Unit]
@@ -58,7 +69,7 @@ WantedBy=multi-user.target
 
       <p>Now you can start and start your Calibre server as below shown:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ systemctl daemon-reload
 $ systemctl enable calibre-server
 $ systemctl start calibre-server
@@ -66,15 +77,15 @@ $ systemctl start calibre-server
 
       <p>Or to start debugging your Calibre server:</p>
 
-      <pre><code>
+      <pre class="language-bash"><code class="language-bash">
 $ systemctl status calibre-server
 $ systemctl restart calibre-server
-    </code></pre>
+      </code></pre>
 
       <h3>Step 4: Configure Nginx</h3>
       <p>Add a Calibre block to your existing URL prefix Nginx server config:</p>
 
-      <pre><code>
+      <pre class="language-nginx"><code class="language-nginx">
 $ vim /etc/nginx/sites-available/mywebsite
 
 proxy_set_header X-Forwarded-For $remote_addr;
@@ -89,11 +100,14 @@ location /calibre {
     </code></pre>
 
       <a href="index.html">Back to Home</a>
+
       <label class="switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider round"></span>
+        <input type="checkbox" id="theme-toggle" onchange="toggleTheme(this.checked)">
+        <span class="slider round"></span>
       </label>
+
       <script src="js/script.js"></script>
+
    </body>
 </html>
 
