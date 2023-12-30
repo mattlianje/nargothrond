@@ -24,8 +24,8 @@
       <p>First, we need to install Calibre on the server:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ apt install -y calibre
-$ mkdir /opt/calibre
+apt install -y calibre
+mkdir /opt/calibre
       </code></pre>
 
       <h3>Step 2: Create the Calibre library</h3>
@@ -40,7 +40,7 @@ calibredb add /opt/calibre/your-local-dir/*.epub \
       Add a user to protect your books like this:
 
       <pre class="language-bash"><code class="language-bash">
-$ calibre-server --manage-users
+calibre-server --manage-users
       </pre></code>
 
       <h3>Step 3: Create a Systemd Service</h3>
@@ -49,7 +49,7 @@ $ calibre-server --manage-users
       use a url prefix ... Calibre doc <a href ="https://manual.calibre-ebook.com/server.html">here</a>:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ vim /etc/systemd/system/calibre-server.service
+vim /etc/systemd/system/calibre-server.service
 
 [Unit]
 Description=Calibre library server
@@ -70,23 +70,23 @@ WantedBy=multi-user.target
       <p>Now you can start and start your Calibre server as below shown:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ systemctl daemon-reload
-$ systemctl enable calibre-server
-$ systemctl start calibre-server
+systemctl daemon-reload
+systemctl enable calibre-server
+systemctl start calibre-server
     </pre></code>
 
       <p>Or to start debugging your Calibre server:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ systemctl status calibre-server
-$ systemctl restart calibre-server
+systemctl status calibre-server
+systemctl restart calibre-server
       </code></pre>
 
       <h3>Step 4: Configure Nginx</h3>
       <p>Add a Calibre block to your existing URL prefix Nginx server config:</p>
 
       <pre class="language-nginx"><code class="language-nginx">
-$ vim /etc/nginx/sites-available/mywebsite
+vim /etc/nginx/sites-available/mywebsite
 
 proxy_set_header X-Forwarded-For $remote_addr;
 location /calibre/ {

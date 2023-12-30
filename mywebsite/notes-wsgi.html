@@ -23,14 +23,14 @@
       <h3>Step 1: Install WSGI server</h3>
       <p>First, we need to install our WSGI server on our Debian machine:</p>
       <pre class="language-bash"><code class="language-bash">
-$ pip3 install gunicorn
+pip3 install gunicorn
     </code></pre>
       <p> You will need to install your wsgi server in our python venv too but that is later.
       <h3>Step 2: Create a systemd service</h3>
       <p>Next, we create a systemd service so our gunicorn server starts on boot.</p>
       
       <pre class="language-bash"><code class="language-bash">
-$ vim /etc/systemd/system/loquax.service
+vim /etc/systemd/system/loquax.service
 
 [Unit]
 Description=Gunicorn instance to serve Loquax
@@ -61,7 +61,7 @@ WantedBy=multi-user.target
       </p>
 
       <pre class="language-nginx"><code class="language-nginx">
-$ vim /etc/nginx/sites-available/mywebsite
+vim /etc/nginx/sites-available/mywebsite
 
 server {
         server_name nargothrond.xyz ;
@@ -85,15 +85,15 @@ server {
       <p>Start up your wsgi server</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ systemctl daemon-reload
-$ systemctl enable loquax
-$ systemctl start loquax
+systemctl daemon-reload
+systemctl enable loquax
+systemctl start loquax
       </pre></code>
       <p>Or to start debugging your WSGI server:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ systemctl status loquax
-$ systemctl restart loquax
+systemctl status loquax
+systemctl restart loquax
     </code></pre>
       <h3>Step 4: Run your app</h3>
       <p>Ensure your app.py, index.html and all the things your Flask app will link in are in the same path specified
@@ -101,7 +101,7 @@ $ systemctl restart loquax
       </p>
 
       <pre class="language-bash"><code class="language-bash">
-$ ls -l /var/www/loquax
+ls -l /var/www/loquax
 
 -rw-r--r-- 1 root root  764 Jul  5 07:09 app.py
 drwxr-xr-x 2 root root 4096 Jul  5 07:09 __pycache__
