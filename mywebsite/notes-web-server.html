@@ -39,16 +39,16 @@ AAAA record: nargothrond.xyz -> ipv6
       <p>Connect to your server via SSH. Here, we are using the domain name 'nargothrond.xyz'.</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ ssh root@nargothrond.xyz
+ssh root@nargothrond.xyz
       </code></pre>
 
       <h3>Step 3: Install Nginx</h3>
       <p>Update your server's package list and install Nginx:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ sudo apt update
-$ sudo apt upgrade
-$ sudo apt install nginx
+sudo apt update
+sudo apt upgrade
+sudo apt install nginx
       </code></pre>
 
       <h3>Step 4: Configure Nginx</h3>
@@ -58,7 +58,7 @@ $ sudo apt install nginx
       </p>
 
       <pre class="language-bash"><code class="language-bash">
-$ sudo vim /etc/nginx/sites-available/mywebsite
+sudo vim /etc/nginx/sites-available/mywebsite
       </code></pre>
 
       <pre class="language-nginx"><code class="language-nginx">
@@ -80,27 +80,28 @@ server {
       <p>Create a symbolic link from your new configuration file to the sites-enabled directory:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled
     </code></pre>
       <h3>Step 6: Install Certbot</h3>
       <p>Install Certbot and the Nginx plugin:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ sudo apt install python3-certbot-nginx
+sudo apt install python3-certbot-nginx
       </code></pre>
 
       <h3>Step 7: Obtain SSL certificate</h3>
       <p>Run Certbot to obtain and install your SSL certificate:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ sudo certbot --nginx
+sudo certbot --nginx
       </code></pre>
 
       <h3>Step 8: Set up automatic certificate renewal</h3>
       <p>Edit your crontab file to add a new cron job that will run the 'certbot renew' command every month:</p>
 
       <pre class="language-bash"><code class="language-bash">
-$ crontab -e
+crontab -e
+
 0 0 1 * * /usr/bin/certbot renew --quiet
       </code></pre>
 
