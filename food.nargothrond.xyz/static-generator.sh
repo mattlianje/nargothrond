@@ -100,7 +100,7 @@ cat << EOF > "$INDEX_HTML"
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>NargoFood - Recipe Collection</title>
+    <title>food.nargothrond.xyz</title>
     <link rel="stylesheet" href="https://latex.now.sh/style.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <style>
@@ -143,7 +143,10 @@ cat << EOF > "$INDEX_HTML"
 $(printf "%s\n" "${recipe_links[@]}")
     </ul>
 
-    <a href="index.html">Back to Home</a>
+    <p>
+    <a href="https://nargothrond.xyz">Back to Home</a>
+    </p>
+
     <label class="switch">
         <input type="checkbox" id="theme-toggle" onchange="toggleTheme(this.checked)">
         <span class="slider round"></span>
