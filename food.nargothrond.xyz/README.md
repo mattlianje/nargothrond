@@ -2,8 +2,8 @@
 
 ## Add a recipe
 - Please open an MR with:
-    - 1 `.md` file .
-    - 1 picture - of your dish, in `/pix`.
+    - 1 - `.md` file .
+    - 1 - picture of your dish, in `/pix`.
 
 ## .md Template
 ```md
