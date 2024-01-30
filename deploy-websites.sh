@@ -5,6 +5,8 @@ update_site() {
     local remote_path="$2"
     local local_path="$script_dir/$site_name"
 
+    [ "$site_name" == "food.nargothrond.xyz" ] && local_path="${local_path}/src"
+
     echo "Updating CSS and JS in $local_path..."
 
     mkdir -p "$local_path/css" "$local_path/js"

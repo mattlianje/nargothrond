@@ -1,9 +1,8 @@
 #!/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-OUTPUT_DIR="$SCRIPT_DIR"
-RECIPES_DIR="$SCRIPT_DIR/recipes"
-INDEX_HTML="$OUTPUT_DIR/index.html"
+OUTPUT_DIR="$SCRIPT_DIR/src"
+INDEX_HTML="$OUTPUT_DIR/src/index.html"
 GOLDEN_RATIO_HEIGHT=$(echo "500 / 1.618" | bc)
 
 convert_md_to_html() {
@@ -181,7 +180,7 @@ EOF
 
 # Function to convert all Markdown files except README.md
 convert_all_md() {
-    for md_file in "$SCRIPT_DIR"/*.md; do
+    for md_file in "$OUTPUT_DIR"/*.md; do
         [ -e "$md_file" ] || continue
         [ "$(basename "$md_file")" != "README.md" ] || continue
         convert_md_to_html "$md_file"
