@@ -4,14 +4,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 OUTPUT_DIR="$SCRIPT_DIR"
 RECIPES_DIR="$SCRIPT_DIR/recipes"
 INDEX_HTML="$OUTPUT_DIR/index.html"
-GOLDEN_RATIO_HEIGHT=$(echo "500 / 1.618" | bc) # Height calculated based on the golden ratio
+GOLDEN_RATIO_HEIGHT=$(echo "500 / 1.618" | bc)
 
-# Function to convert a markdown file to HTML
 convert_md_to_html() {
-    input_md="$1"
-    output_html="${OUTPUT_DIR}/$(basename "${input_md%.md}.html")"
+    local input_md="$1"
+    local output_html="${OUTPUT_DIR}/$(basename "${input_md%.md}.html")"
 
-    # Start of the HTML document
     cat <<EOF > "$output_html"
 <!DOCTYPE html>
 <html>
@@ -63,7 +61,6 @@ EOF
         fi
     done < "$input_md"
 
-    # End of the HTML document
     cat <<EOF >> "$output_html"
 <br>
 <a href="index.html">Back to Home</a>
@@ -79,22 +76,24 @@ EOF
     echo "Conversion completed: $output_html"
 }
 
-# Convert all Markdown files in the directory
-for md_file in "$SCRIPT_DIR"/*.md; do
-    [ -e "$md_file" ] || continue
-    convert_md_to_html "$md_file"
-done
+# Function to generate recipe links
+generate_recipe_links() {
+    local recipe_links=()
+    for html_file in "$OUTPUT_DIR"/*.html; do
+        [ -e "$html_file" ] || continue
+        [ "$(basename "$html_file")" != "index.html" ] || continue
+        local title=$(basename "$html_file" .html)
+        recipe_links+=("<li><a href=\"$(basename "$html_file")\">$title</a></li>")
+    done
 
-# Generate list of recipe links for index.html
-recipe_links=()
-for html_file in "$OUTPUT_DIR"/*.html; do
-    [ -e "$html_file" ] || continue
-    [ "$(basename "$html_file")" != "index.html" ] || continue
-    title=$(basename "$html_file" .html)
-    recipe_links+=("<li><a href=\"$(basename "$html_file")\">$title</a></li>")
-done
+    printf "%s\n" "${recipe_links[@]}"
+}
 
-# Create index.html with the recipe links
+# Function to create index.html with the recipe links
+create_index_html() {
+    local recipe_links=$(generate_recipe_links)
+
+    # Create index.html with the recipe links
 cat << EOF > "$INDEX_HTML"
 <!DOCTYPE html>
 <html>
@@ -133,7 +132,8 @@ cat << EOF > "$INDEX_HTML"
         <h1>food.nargothrond.xyz</h1>
     </div>
 
-    <p>No ads, no bloated JS spyware, just recipes.</p>
+    <p>No ads, no bloated JS spyware, just recipes. <a href="https://github.com/mattlianje/nargothrond/tree/main/food.nargothrond.xyz" target="_blank">Contribute</a>.
+    </p>
 
     <div class="search-box">
         <input type="text" id="recipe-search" placeholder="Search recipes..." onkeyup="filterRecipes()">
@@ -176,6 +176,23 @@ $(printf "%s\n" "${recipe_links[@]}")
 </body>
 </html>
 EOF
+    echo "Index created with recipe links."
+}
 
-echo "Index created with recipe links."
+# Function to convert all Markdown files except README.md
+convert_all_md() {
+    for md_file in "$SCRIPT_DIR"/*.md; do
+        [ -e "$md_file" ] || continue
+        [ "$(basename "$md_file")" != "README.md" ] || continue
+        convert_md_to_html "$md_file"
+    done
+}
+
+main() {
+    convert_all_md
+    create_index_html
+    echo "All operations completed."
+}
+
+main
 

@@ -19,13 +19,17 @@ update_site() {
     rsync -avz "$local_path/" "$remote_path/"
 }
 
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
-css_dir="$script_dir/css"
-js_dir="$script_dir/js"
+main() {
+    script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+    css_dir="$script_dir/css"
+    js_dir="$script_dir/js"
 
-update_site "matthieucourt.xyz" "root@nargothrond.xyz:/var/www/matthieucourt.xyz"
-update_site "code.nargothrond.xyz" "root@nargothrond.xyz:/var/www/code.nargothrond.xyz"
-update_site "food.nargothrond.xyz" "root@nargothrond.xyz:/var/www/food.nargothrond.xyz"
-update_site "nargothrond.xyz" "root@nargothrond.xyz:/var/www/nargothrond.xyz"
+    update_site "matthieucourt.xyz" "root@nargothrond.xyz:/var/www/matthieucourt.xyz"
+    update_site "code.nargothrond.xyz" "root@nargothrond.xyz:/var/www/code.nargothrond.xyz"
+    update_site "food.nargothrond.xyz" "root@nargothrond.xyz:/var/www/food.nargothrond.xyz"
+    update_site "nargothrond.xyz" "root@nargothrond.xyz:/var/www/nargothrond.xyz"
 
-echo "All websites have been updated and synchronized."
+    echo "All websites have been updated and synchronized."
+}
+
+main

@@ -1,6 +1,6 @@
 # Japanese Curry
 
-![Japanese Curry](pix/japanese-curry.jpeg)
+![Japanese Curry](pix/recipe-japanese-curry.jpeg)
 - **Serves**: 5
 - **Prep time**: 1hr
 - **Author**: Matthieu Court
