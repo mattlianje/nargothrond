@@ -1,4 +1,4 @@
-# food.nargothrond.xyz Contribution Guidelines
+# Contributing
 
 ## Add a recipe
 - Please open an MR with:
