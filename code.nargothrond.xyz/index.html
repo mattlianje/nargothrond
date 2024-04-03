@@ -53,17 +53,41 @@
         }
     </style>
 </head>
+
 <body>
     <h1>code.nargothrond.xyz</h1>
-    <ul>
-        <li class="list-item">
-            <a href="https://nargothrond.xyz/loquax">
-                <img src="pix/loquax-icon.png" alt="Loquax">
-                <span class="title">Loquax</span>
-            </a>
-            <div class="desc">Pure-FP style NLP framework for phonology</div>
-        </li>
-    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Language</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="https://nargothrond.xyz/loquax">Loquax</a></td>
+                <td>Python</td>
+                <td>Pure-FP style NLP framework for classical phonology</td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/mattlianje/flowers">Flowers</a></td>
+                <td>Scala</td>
+                <td>Library on MavenCentral for pure-FP access to WW2-era cipher machines</td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/mattlianje/zob">ZOB</a></td>
+                <td>C</td>
+                <td>My OrgMode like ecosystem for UNIX local development</td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/mattlianje/yavanna">Yavanna</a></td>
+                <td>Rust</td>
+                <td>Compiler for my synthetic language</td>
+            </tr>
+            
+        </tbody>
+    </table>
 
     <label class="switch">
         <input type="checkbox" id="theme-toggle" onchange="toggleTheme(this.checked)">
@@ -72,4 +96,5 @@
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
