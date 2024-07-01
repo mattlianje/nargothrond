@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matthieu's Webserver</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+        <link rel="icon"
+            type="image/png"
+            href="pix/nargothrond.png">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>nargothrond.xyz</h1>
+            <a href="https://github.com/mattlianje/nargothrond" target="_blank">
+            <img src="pix/nargothrond.png" alt="Profile Picture" class="profile-pic">
+            </a>
+            <p class="welcome-text"><a href="https://lotr.fandom.com/wiki/Nargothrond" target="_blank">Nargothrond</a> (Sindarin IPA: [narˈɡoθrond]) was an underground Elven fortress and city that was delved into the banks of the river Narog in West Beleriand during the First Age. It was built and ruled by the Ñoldorin king Finrod Felagund, son of Finarfin.</p>
+        </header>
+        <section class="section oss-projects">
+            <h2>Ea, mellon!</h2>
+            <p>Mae govannen, wanderer of the digital woods, and warm greetings from the halls of Nargothrond.</p>
+            <p>The idea behind this webserver is simple — most of the web does not need to be dynamic. Many of the internet's security and privacy concerns can be remedied by people self-hosting their chat servers, websites, and other services for pocket change on a VPS.</p>
+            <p><i>With all due respect,<br>Matthieu Court</i></p>
+        </section>
+        <section class="section oss-projects">
+            <h2>FAQ</h2>
+            <p><b>Logo?</b></p>
+            <p>
+                The logo represents a stylized smith's hammer, of hybrid Dwarven-Elvish origin, possibly gifted to Finrod along with the epithet "Felagund" by
+                his allies the Dwarves of the Blue Mountains. It also incorporates the three ill-fated silmarils wrought into Morgoth's crown of iron that
+                indirectly led to Finrod's demise.
+            </p>
+            <p><b>How to get started?</b><br>
+            <p>Found your fiefdom on the web for pocket change in ~1hr.</p>
+            <ul>
+                <li>Buy a small Debian 11 VPS for pocket change.</li>
+                <li>Register a domain with a registrar.</li>
+                <li>Follow the <a href="nginx.html" target="_blank">Nginx setup notes</a>.</li>
+            </ul>
+        </section>
+        <section class="websites-section">
+            <h2>Services</h2>
+            <div class="tiles-container">
+                <a href="https://food.nargothrond.xyz" class="tile-link">
+                    <img src="pix/food.png" alt="food.nargothrond.xyz">
+                    <span>food.nargothrond.xyz</span>
+                    <div class="tooltip-text">My personal and family recipes</div>
+                </a>
+                <a href="https://matthieucourt.xyz" class="tile-link">
+                    <img src="pix/matthieu-tengwar.png" alt="matthieucourt.xyz">
+                    <span>matthieucourt.xyz</span>
+                    <div class="tooltip-text">My personal website</div>
+                </a>
+                <a href="https://calibre.nargothrond.xyz" class="tile-link">
+                    <img src="pix/calibre.png" alt="calibre">
+                    <span>NargoLib</span>
+                    <div class="tooltip-text">My .epub server</div>
+                </a>
+                <a href="https://jitsi.nargothrond.xyz" class="tile-link">
+                    <img src="pix/jitsi.svg" alt="jitsi">
+                    <span>NargoChat</span>
+                    <div class="tooltip-text">My video-chat server</div>
+                </a>
+                <a href="https://xmpp.nargothrond.xyz" class="tile-link">
+                    <img src="pix/xmpp.png" alt="xmpp">
+                    <span>@nargothrond.xyz</span>
+                    <div class="tooltip-text">Name of my XMPP server</div>
+                </a>
+            </div>
+        </section>
+        <section class="websites-section">
+            <h2>Setup Notes</h2>
+            <div class="tiles-container">
+                <a href="jitsi.html" class="tile-link">
+                    <img src="pix/jitsi.svg" alt="jitsi">
+                    <span>Jitsi</span>
+                    <div class="tooltip-text">Jitsi video-call server self-hosting</div>
+                </a>
+                <a href="nginx.html" class="tile-link">
+                    <img src="pix/nginx.png" alt="Nginx">
+                    <span>Nginx</span>
+                    <div class="tooltip-text">Nginx webserver self-hosting</div>
+                </a>
+                <a href="ejabberd.html" class="tile-link">
+                    <img src="pix/ejabberd.png" alt="Ejabberd">
+                    <span>Ejabberd</span>
+                    <div class="tooltip-text">Ejabberd XMPP server self-hosting</div>
+                </a>
+                <a href="wsgi.html" class="tile-link">
+                    <img src="pix/wsgi.png" alt="WSGI">
+                    <span>WSGI</span>
+                    <div class="tooltip-text">Python WSGI server self-hosting</div>
+                </a>
+                <a href="calibre.html" class="tile-link">
+                    <img src="pix/calibre.png" alt="Calibre">
+                    <span>Calibre</span>
+                    <div class="tooltip-text">Calibre .epub server self-hosting</div>
+                </a>
+            </div>
+        </section>
+        <footer>
+            <p>Jabber-ID: <a href="matthieu@nargothrond.xyz">matthieu@nargothrond.xyz</a>
+            </p>
+            <p>My GnuPG key: <a href="gnupg-key.txt">Download Key</a></p>
+            <p>Last updated: April 19th, 2024</p>
+        </footer>
+    </body>
+</html>
