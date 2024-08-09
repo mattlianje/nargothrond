@@ -13,7 +13,6 @@ main() {
     script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 
     copy_site "matthieucourt.xyz" "root@nargothrond.xyz:/var/www/matthieucourt.xyz"
-    copy_site "code.nargothrond.xyz" "root@nargothrond.xyz:/var/www/code.nargothrond.xyz"
     copy_site "food.nargothrond.xyz" "root@nargothrond.xyz:/var/www/food.nargothrond.xyz"
     copy_site "nargothrond.xyz" "root@nargothrond.xyz:/var/www/nargothrond.xyz"
 

@@ -1,25 +1,27 @@
-
 :root {
-    --text-color: #000000; /* Black text for high readability */
-    --bg-color: #D0D0D0; /* Lighter gray for the background */
-    --header-footer-bg: #D0D0D0; /* Slightly darker than bg-color for a subtle differentiation */
-    --article-bg: #BEBEBE; /* A mid-tone gray, lighter than previously for content areas */
-    --link-color: #4567A3;
-    --tooltip-bg: rgba(200, 200, 200, 0.9); /* Light gray for tooltip backgrounds */
-    --tooltip-text-color: #333333; /* Darker gray for tooltip text for contrast */
-    --title-color: #333333; /* Dark gray for titles, to stand out against lighter backgrounds */
+    --text-color: #4C566A; /* Similar to PaperColor DarkGrey */
+    --bg-color: #eeeeee; /* Light grey for background, similar to PaperColor Base2 */
+    --header-footer-bg: #f5f5f5; /* Slightly lighter grey for headers and footers */
+    --article-bg: #ffffff; /* White background for articles */
+    --link-color: #0087af; /* PaperColor Blue */
+    --tooltip-bg: rgba(238, 238, 238, 0.9); /* Light grey with transparency for tooltips */
+    --tooltip-text-color: #586e75; /* Dark grey for tooltip text */
+    --title-color: #0087af; /* PaperColor Pink */
     --tile-size: 80px;
     --tile-margin: 10px;
-    --section-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly lighter shadow for a softer look */
+    --section-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     --max-tiles-per-row: 4;
-    --content-width: 640px; /* Width for centered content remains the same */
+    --content-width: 640px; /* Width for centered content */
+    --papercolor-pink: #D33682;
+    --papercolor-light-bg: #eeeeee;
+    --papercolor-dark-bg: #d0d0d0;
 }
 
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: var(--bg-color);
+    background-color: var(--papercolor-light-bg);
     color: var(--text-color);
 }
 
@@ -28,14 +30,14 @@ a {
 }
 
 a:hover, a:focus {
-    color: #354D78; /* Lighter shade of blue for hover/focus effects */
+    color: #d7afff; /* Lighter shade of PaperColor Blue for hover/focus effects */
     text-decoration: underline;
 }
 
 header {
     text-align: center;
     padding: 10px 0;
-    background-color: var(--header-footer-bg);
+    background-color: var(--papercolor-light-bg);
 }
 
 h3, h4 {
@@ -46,7 +48,7 @@ h3, h4 {
 }
 
 h1 {
-    color: var(--title-color);
+    color: var(--papercolor-pink);
     text-align: center;
     margin: 20px auto;
     max-width: var(--content-width);
@@ -57,7 +59,7 @@ h2 {
 }
 
 p {
-    text-align: left; /* Classless paragraphs should be left-aligned */
+    text-align: left;
     margin: 20px auto;
     font-size: 1em;
     max-width: var(--content-width);
@@ -86,7 +88,7 @@ p {
 }
 
 .section {
-    background-color: var(--article-bg);
+    background-color: var(--papercolor-dark-bg);
     padding: 20px;
     margin: 20px 0;
     border-radius: 8px;
@@ -97,11 +99,11 @@ p {
     margin-right: auto;
 }
 
- .websites-section {
-            text-align: center;
-            margin: 20px auto;
-            align-items: center;
-        }
+.websites-section {
+    text-align: center;
+    margin: 20px auto;
+    align-items: center;
+}
 
 .tiles-container {
     display: flex;
@@ -168,7 +170,7 @@ p {
 }
 
 pre.code {
-    background-color: var(--article-bg) !important;
+    background-color: var(--papercolor-dark-bg) !important;
     color: var(--text-color) !important;
     border: 0px solid var(--text-color) !important;
     border-radius: 4px !important;
@@ -176,8 +178,8 @@ pre.code {
     overflow: auto !important;
     margin: 20px auto !important;
     font-size: 0.85rem !important;
-    max-width: var(--content-width) !important; /* Center like standard paragraphs */
-    text-align: left !important; /* Ensure text inside is left-aligned */
+    max-width: var(--content-width) !important;
+    text-align: left !important;
 }
 
 code {
@@ -189,15 +191,14 @@ code {
     color: inherit !important; /* Inherit text color */
 }
 
-
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: var(--header-footer-bg);
+    background-color: var(--papercolor-light-bg);
 }
 
 footer p {
-    text-align: center; /* Align text to center, matching welcome-text */
+    text-align: center;
     max-width: var(--content-width);
     margin: 20px auto;
     font-size: 1em;

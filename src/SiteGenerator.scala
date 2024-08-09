@@ -1,4 +1,4 @@
-//> using dep "org.jsoup:jsoup:1.17.2"
+//> using dep "org.jsoup:jsoup:1.18.1"
 //> using dep "com.lihaoyi::scalatags:0.13.1"
 
 import scala.util.matching.Regex
