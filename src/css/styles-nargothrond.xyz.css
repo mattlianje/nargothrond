@@ -1,0 +1,206 @@
+:root {
+    --text-color: #4C566A; /* Similar to PaperColor DarkGrey */
+    --bg-color: #eeeeee; /* Light grey for background, similar to PaperColor Base2 */
+    --header-footer-bg: #f5f5f5; /* Slightly lighter grey for headers and footers */
+    --article-bg: #ffffff; /* White background for articles */
+    --link-color: #0087af; /* PaperColor Blue */
+    --tooltip-bg: rgba(238, 238, 238, 0.9); /* Light grey with transparency for tooltips */
+    --tooltip-text-color: #586e75; /* Dark grey for tooltip text */
+    --title-color: #0087af; /* PaperColor Pink */
+    --tile-size: 80px;
+    --tile-margin: 10px;
+    --section-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    --max-tiles-per-row: 4;
+    --content-width: 640px; /* Width for centered content */
+    --papercolor-pink: #D33682;
+    --papercolor-light-bg: #eeeeee;
+    --papercolor-dark-bg: #d0d0d0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--papercolor-light-bg);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+}
+
+a:hover, a:focus {
+    color: #d7afff; /* Lighter shade of PaperColor Blue for hover/focus effects */
+    text-decoration: underline;
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--papercolor-light-bg);
+}
+
+h3, h4 {
+    color: var(--title-color);
+    text-align: left;
+    margin: 20px auto;
+    max-width: var(--content-width);
+}
+
+h1 {
+    color: var(--papercolor-pink);
+    text-align: center;
+    margin: 20px auto;
+    max-width: var(--content-width);
+}
+
+h2 {
+    color: var(--title-color);
+}
+
+p {
+    text-align: left;
+    margin: 20px auto;
+    font-size: 1em;
+    max-width: var(--content-width);
+}
+
+.profile-pic {
+    width: 160px;
+    margin: 10px auto;
+    display: block;
+}
+
+.caption {
+    text-align: center;
+    color: var(--text-color);
+    font-style: italic;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+}
+
+.welcome-text {
+    text-align: center;
+    max-width: var(--content-width);
+    margin: 20px auto;
+    font-size: 1em;
+}
+
+.section {
+    background-color: var(--papercolor-dark-bg);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: var(--section-shadow);
+    text-align: left;
+    max-width: var(--content-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.websites-section {
+    text-align: center;
+    margin: 20px auto;
+    align-items: center;
+}
+
+.tiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    max-width: calc((var(--tile-size) + 2 * var(--tile-margin)) * var(--max-tiles-per-row));
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tile-link {
+    text-decoration: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--tile-margin);
+    width: var(--tile-size);
+    text-align: center;
+    position: relative;
+}
+
+.tile-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.tile-link span {
+    display: block;
+    text-align: center;
+    color: var(--text-color);
+    margin-top: 5px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    font-size: 1em;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10%);
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-text-color);
+    text-align: center;
+    padding: 3px;
+    border-radius: 4px;
+    transition: visibility 0.2s, opacity 0.2s ease-in-out, transform 0.2s ease;
+    opacity: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tile-link:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-60%);
+}
+
+pre.code {
+    background-color: var(--papercolor-dark-bg) !important;
+    color: var(--text-color) !important;
+    border: 0px solid var(--text-color) !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    overflow: auto !important;
+    margin: 20px auto !important;
+    font-size: 0.85rem !important;
+    max-width: var(--content-width) !important;
+    text-align: left !important;
+}
+
+code {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    font-size: inherit !important;
+    color: inherit !important; /* Inherit text color */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: var(--papercolor-light-bg);
+}
+
+footer p {
+    text-align: center;
+    max-width: var(--content-width);
+    margin: 20px auto;
+    font-size: 1em;
+}
+
