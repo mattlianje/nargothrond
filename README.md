@@ -1,6 +1,7 @@
 <div align="center">
     <img src="pix/nargothrond_with_github.png" width="400"/>
 </div>
+
 # Nargothrond
 Repo for my static site generator.
 
