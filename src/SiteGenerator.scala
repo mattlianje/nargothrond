@@ -168,16 +168,7 @@ object MarkdownParser {
 
 
 object SiteGenerator {
-
-  /** SiteGenerator creates directories and files for nargosite structures. Each
-    * nargosite has the following structure:
-    *   - index.html
-    *   - site_1.html ... site_n.html
-    *   - style.css
-    *   - script.js
-    *   - pix/pic_1.png
-    */
-
+  
   case class HtmlPage(fpath: String)
   case class StyleSheet(fpath: String)
   case class JsFile(fpath: String)
