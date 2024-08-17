@@ -27,13 +27,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.7838391"
-     inkscape:cx="-237.2936"
-     inkscape:cy="192.64158"
-     inkscape:window-width="2504"
-     inkscape:window-height="1343"
-     inkscape:window-x="105"
-     inkscape:window-y="165"
+     inkscape:zoom="0.69548562"
+     inkscape:cx="603.17566"
+     inkscape:cy="530.56453"
+     inkscape:window-width="1864"
+     inkscape:window-height="1247"
+     inkscape:window-x="214"
+     inkscape:window-y="77"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
      inkscape:export-bgcolor="#ffffff00" />
@@ -43,11 +43,11 @@
        id="linearGradient19"
        inkscape:collect="always">
       <stop
-         style="stop-color:#0c290c;stop-opacity:1;"
+         style="stop-color:#f96eb6;stop-opacity:1;"
          offset="0"
          id="stop19" />
       <stop
-         style="stop-color:#1e6032;stop-opacity:1;"
+         style="stop-color:#f5cdf2;stop-opacity:1;"
          offset="1"
          id="stop20" />
     </linearGradient>
